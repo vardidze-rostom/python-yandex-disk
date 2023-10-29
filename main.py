@@ -32,4 +32,4 @@ if __name__ == "__main__":
 
     y.upload(f"{file_path_with_name}", f"{folder_path}/{filename}")
 
-    print(f"{file_path_with_name} successfully uploaded!")
+    print(f"{filename} successfully uploaded!")
