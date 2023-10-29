@@ -14,7 +14,7 @@ And you will get Timeout Exeption.
 To fix the issue, just rename your file without an extension and upload.
 
 # Run Python script:
-### 1. Create Python environment and activate:
+### 1. Create Python environment in the same folder where is the python script and activate:
 ```bash
 python3 -m venv venv
 
