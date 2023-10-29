@@ -31,9 +31,17 @@ current_datetime=$(date +"%Y-%m-%d_%H-%M-%S")
 
 cd $path_to_save_dump
 
-tar -czf dump_${current_datetime}  postgres.sql
+archive_name=dump_${current_datetime}
+
+tar -czf $archive_name  postgres.sql && rm postgres.sql
 
 echo "Backup succesfull created!"
 
-$path_to_python_file dump_${current_datetime} $yandex_folder
+directory_path_python_file="$(dirname "$path_to_python_file")"
+
+cd $directory_path_python_file
+
+source venv/bin/activate
+
+python3 $path_to_python_file ${path_to_save_dump}$archive_name $yandex_folder
 

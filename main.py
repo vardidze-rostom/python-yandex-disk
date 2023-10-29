@@ -1,11 +1,10 @@
-#!./venv/bin/python3
 import yadisk
-from os import environ
-import argparse
+from os import environ, path
+from argparse import ArgumentParser
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Python script for upload files to Yandex Disk.")
+    parser = ArgumentParser(description="Python script for upload files to Yandex Disk.")
 
     parser.add_argument('file', type=str, help='The file to need upload.')
     parser.add_argument('folder', type=str, help='Full path to folder in Yandex Disk to upload the file. \
@@ -29,6 +28,8 @@ if __name__ == "__main__":
         print("Token is not valid")
         exit(-1)
 
-    y.upload(f"{file_path_with_name}", f"{folder_path}/{file_path_with_name}")
+    filename = path.basename(file_path_with_name)
+
+    y.upload(f"{file_path_with_name}", f"{folder_path}/{filename}")
 
     print(f"{file_path_with_name} successfully uploaded!")

@@ -1,7 +1,7 @@
 # python-yandex-disk
 Program for upload files to Yandex Disk.
 ### Note:
-Yandex can Slow down upload speed when you try to upload files with that extensions:
+Yandex can slow down upload speed when you try to upload files with that extensions:
 ```
 data (.db, .dat, etc.)
 
@@ -48,4 +48,4 @@ chmod +x postges-docker.sh
 ```bash
 ./postges-docker.sh container_name database_name database_user /path/to/save/dump/ /path/to/python/script/main.py /path/to/yandex/folder
 ```
-
+**Note:** This bash script creates archives without extensions for uploading to Yandex Disk. In fact, the archives have extensions **.sql.tar.gz** .
