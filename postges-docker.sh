@@ -2,13 +2,13 @@
 
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     echo "This script for create dump of docker postgres database."
-    echo "Usage: $0 container_name database_name database_user path_to_save_dump path_to_python_file"
+    echo "Usage: $0 container_name database_name database_user /path/to/save/dump/ /path/to/python/script/main.py /path/to/yandex/folder"
     exit 0
 fi
 
-if [ "$#" -ne 5 ]; then
-    echo "Error: need two arguments: 'container_name', 'path_to_save_dump' and 'database_name'"
-    echo "Usage: $0 container_name database_name database_user path_to_save_dump path_to_python_file"
+if [ "$#" -ne 6 ]; then
+    echo "Error: not enough arguments."
+    echo "Usage: $0 container_name database_name database_user /path/to/save/dump/ /path/to/python/script/main.py /path/to/yandex/folder"
     exit 1
 fi
 
@@ -20,7 +20,7 @@ database_name=$2
 database_user=$3
 path_to_save_dump=$4
 path_to_python_file=$5
-
+yandex_folder=$6
 
 
 docker exec $container_name sh -c "pg_dump -U $database_user $database_name > /tmp/postgres.sql"
@@ -35,5 +35,5 @@ tar -czf dump_${current_datetime}  postgres.sql
 
 echo "Backup succesfull created!"
 
-$path_to_python_file dump_${current_datetime} /publicdictionary_backup
+$path_to_python_file dump_${current_datetime} $yandex_folder
 

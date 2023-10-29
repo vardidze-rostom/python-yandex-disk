@@ -46,6 +46,6 @@ chmod +x postges-docker.sh
 ```
 ### 2. Run the script:
 ```bash
-./postges-docker.sh container_name database_name database_user /path/to/save/dump/ /path/to/python/script/main.py
+./postges-docker.sh container_name database_name database_user /path/to/save/dump/ /path/to/python/script/main.py /path/to/yandex/folder
 ```
 
