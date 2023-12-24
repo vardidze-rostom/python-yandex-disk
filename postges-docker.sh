@@ -31,7 +31,7 @@ current_datetime=$(date +"%Y-%m-%d_%H-%M-%S")
 
 cd $path_to_save_dump
 
-archive_name=dump_${current_datetime}
+archive_name=postgres_dump_${current_datetime}
 
 tar -czf $archive_name  postgres.sql && rm postgres.sql
 
