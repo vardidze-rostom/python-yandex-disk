@@ -52,5 +52,21 @@ chmod +x postges-docker.sh
 
 You can create Crontab job for upload backups any time you need. Here is example to upload backups at 23:00 on day-of-month 1:
 ```bash
-0 23 1 * * YANDEX_DISK_TOKEN=here_is_your_token /path/to/postges-docker.sh postgres_container_name database_name database_user /path/to/save/dump/ /path/to/main.py /path/to/folder/in/yandex >> /path/to/save/logs/logfile.log 2>&1
+0 23 1 * * YANDEX_DISK_TOKEN=here_is_your_token /path/to/postges-docker.sh postgres_container_name database_name database_user /path/to/save/dump/ /path/to/main.py /path/to/folder/in/yandex > /path/to/save/logs/logfile.log 2>&1
+```
+
+## passbolt-docker:
+### 1. Add permission to run the file:
+```bash
+chmod +x passbolt-docker.sh 
+```
+### 2. Run the script:
+```bash
+./passbolt-docker.sh database_container_name passbolt_container_name /path/to/save/dump/ /path/to/python/script/main.py /path/to/yandex/folder
+```
+**Note:** This bash script creates archives without extensions for uploading to Yandex Disk. In fact, the archives have extensions **.sql.tar.gz** .
+
+You can create Crontab job for upload backups any time you need. Here is example to upload backups at 23:00 on day-of-month 1:
+```bash
+0 23 1 * * YANDEX_DISK_TOKEN=here_is_your_token /path/to/passbolt-docker.sh database_container_name passbolt_container_name /path/to/save/dump/ /path/to/main.py /path/to/folder/in/yandex > /path/to/save/logs/logfile.log 2>&1
 ```
