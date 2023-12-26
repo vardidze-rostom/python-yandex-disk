@@ -70,3 +70,5 @@ You can create Crontab job for upload backups any time you need. Here is example
 ```bash
 0 23 1 * * YANDEX_DISK_TOKEN=here_is_your_token /path/to/passbolt-docker.sh database_container_name passbolt_container_name /path/to/save/dump/ /path/to/main.py /path/to/folder/in/yandex > /path/to/save/logs/logfile.log 2>&1
 ```
+
+Credentials of database you can save in file and also upload to cloud.
